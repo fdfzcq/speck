@@ -1,4 +1,4 @@
-defmodule Example do
+defmodule Example.A do
   defmodule Foo do
     @spec func(a() :: int(), b :: int()) :: int()|nil
     def func(a, 0), do: nil
