@@ -14,7 +14,7 @@ defmodule Speck.Parser do
     |> init()
     |> to_abstract()
     |> get_abs_modules()
-    |> Enum.map(&ModuleParser.parse)
+    |> Enum.map(&ModuleParser.parse/1)
     # TBC
 
   defp init(code_str), do: %__MODULE__{code_str: code_str}
