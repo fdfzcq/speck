@@ -3,36 +3,34 @@ defmodule Speck.Parser.ModuleParser do
 
   @type state() :: %__MODULE__{
     name:             nil|binary(),
-    functions:        map(),
+    functions:        list(),
     nested_modules:   list()
   }
 
   defstruct(
     name: nil,
-    functions: %{},
+    functions: [],
     nested_modules: []
   )
 
   def new(), do: %__MODULE__{}
 
   @spec parse(module() :: list()) :: state()
-  def parse(module) do
-    {:defmodule, _, attributes} = module
+  def parse({:defmodule, _, attributes}), do:
     parse_attributes(attributes, new())
-  end
+  def parse(_), do: nil
 
   defp parse_attributes([], state), do: state
   defp parse_attributes([h|t], state), do: parse_attributes(t, parse_attribute(h, state))
 
   defp parse_attribute({:__aliases__, _, mod_names}, state), do:
     %{state|name: "Elixir." <> Enum.join(mod_names, ".")}
-  defp parse_attribute([{:do, {:__block__, _, [{:defmodule, _, module_attributes}|t]}}], state) do
-    state = %{state|nested_modules: [parse_attributes(module_attributes, new())|state.nested_modules]}
-    parse_attribute(t, state)
-  end
-  defp parse_attribute([{:do, {:__block__, [], attributes}}], state), do:
-    parse_attribute(attributes, state)
-  defp parse_attribute([{:@, _, [{:spec, _, spec_attributes}]}], state), do:
+  defp parse_attribute([{:do, {:__block__, _, attributes}}], state), do:
+    parse_attributes(attributes, state)
+  defp parse_attribute({:@, _, [{:spec, _, spec_attributes}|_]}, state), do:
     %{state|functions: [SpecParser.parse(spec_attributes)|state.functions]}
+  defp parse_attribute(mod = {:defmodule, _, _}, state), do:
+    %{state|nested_modules: [parse(mod)|state.nested_modules]}
+  defp parse_attribute(_, state), do: state
 
 end
