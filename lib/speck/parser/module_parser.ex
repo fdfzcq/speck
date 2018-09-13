@@ -24,7 +24,7 @@ defmodule Speck.Parser.ModuleParser do
   defp parse_attributes([h|t], state), do: parse_attributes(t, parse_attribute(h, state))
 
   defp parse_attribute({:__aliases__, _, mod_names}, state), do:
-    %{state|name: "Elixir." <> Enum.join(mod_names, ".")}
+    %{state|name: Enum.join(mod_names, ".")}
   defp parse_attribute([{:do, {:__block__, _, attributes}}], state), do:
     parse_attributes(attributes, state)
   defp parse_attribute({:@, _, [{:spec, _, spec_attributes}|_]}, state), do:

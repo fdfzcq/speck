@@ -28,11 +28,12 @@ defmodule Speck.Parser.SpecParser do
   defp get_type([spec]), do: get_type(spec)
   defp get_type({type, _, _}), do: type
 
+  defp parse_returns([], l), do: l
+    |> :lists.reverse()
+    |> :lists.flatten()
+  defp parse_returns({:|, _, returns}, l), do: parse_returns(returns, []) ++ l
   defp parse_returns({type, _, _}, l), do: [type|l]
-  defp parse_returns([], l), do: :lists.reverse(l)
-  defp parse_returns([{:|, _, returns}|t], l), do:
-    parse_returns(t, [parse_returns(returns, [])|l])
   defp parse_returns([return|t], l), do:
-    parse_returns(t, [return|l])
+    parse_returns(t, [parse_returns(return, [])|l])
   defp parse_returns(r, l), do: [r|l]
 end
