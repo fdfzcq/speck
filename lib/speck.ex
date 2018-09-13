@@ -40,5 +40,6 @@ defmodule Speck do
 
   defp print_report(report), do:
     report
-    |> Enum.each(&Printer.print/1)
+    |> Enum.reduce(%{success: 0, failed: 0}, &Printer.print/2)
+    |> Printer.print_summary()
 end

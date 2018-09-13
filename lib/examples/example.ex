@@ -1,8 +1,7 @@
 defmodule Example.A do
   alias Logger
   defmodule Foo do
-    @spec func(a :: integer, b :: integer) :: integer|nil
-    def func(a, 0), do: nil
+    @spec func(a :: integer, b :: integer) :: integer
     def func(a, b), do: a + b
 
     @spec func2(test :: boolean) :: boolean
