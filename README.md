@@ -64,8 +64,11 @@ mix speck.test lib/examples/example.ex
 ```
 
 ## What's next
+Bug to fix:
+ - Ambiguous values in the report (missing quotes?)
 
 To be added in the future:
+ - Add input types to the report
  - Support more complex type specs
  - Tests and handle more corner cases
  - Make it possible to set range/filter on input data
