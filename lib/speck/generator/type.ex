@@ -44,7 +44,7 @@ defmodule Speck.Generator.Type do
     end
     def generate(:integer), do: generate(:int)
     def generate(:neg_integer), do: generate_neg_integer()
-    def generate_neg_integer(upbound \\ 1000), do: random_number(upbound)
+    def generate_neg_integer(upbound \\ 1000), do: 0 - random_number(upbound)
     def generate(:non_neg_integer), do: generate_non_neg_integer()
     def generate_non_neg_integer(upbound \\ 1000), do: trunc(random_number(upbound * upbound)/upbound)
 
