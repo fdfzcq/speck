@@ -22,40 +22,40 @@ Speck will extract type specs and module metadata from all the .ex files under c
 
 Example output (color coded in the shell):
 ```bash
-Elixir.Example.A.Foo.func2(true) failed with result  expected result to be (boolean)
 Elixir.Example.A.Foo.func2(false) passed
-Elixir.Example.A.Foo.func(103, 976) passed
-Elixir.Example.A.Foo.func(852, 88) passed
-Elixir.Example.A.Foo.func(1, 18) passed
-Elixir.Example.A.Foo.func(327, 30) passed
-Elixir.Example.A.Foo.func(23, 330) passed
-Elixir.Example.A.Foo.func(215, 875) passed
-Elixir.Example.A.Foo.func(922, 983) passed
-Elixir.Example.A.Foo.func(72, 943) passed
-Elixir.Example.A.Foo.func(633, 733) passed
-Elixir.Example.A.Foo.func(651, 316) passed
-Elixir.ExampleB.func2(809, 827) passed
-Elixir.ExampleB.func2(829, 500) passed
-Elixir.ExampleB.func2(196, 426) passed
-Elixir.ExampleB.func2(9, 424) passed
-Elixir.ExampleB.func2(491, 626) passed
-Elixir.ExampleB.func2(248, 825) passed
-Elixir.ExampleB.func2(616, 946) passed
-Elixir.ExampleB.func2(464, 120) passed
-Elixir.ExampleB.func2(194, 878) passed
-Elixir.ExampleB.func2(758, 397) passed
+Elixir.Example.A.Foo.func2(true) passed
+Elixir.Example.A.Foo.func(-525, -93) passed
+Elixir.Example.A.Foo.func(329, -88) failed with result %ArithmeticError{message: "bad argument in arithmetic expression"} expected result to be (integer)
+Elixir.Example.A.Foo.func(878, 347) failed with result %ArithmeticError{message: "bad argument in arithmetic expression"} expected result to be (integer)
+Elixir.Example.A.Foo.func(119, 178) failed with result %ArithmeticError{message: "bad argument in arithmetic expression"} expected result to be (integer)
+Elixir.Example.A.Foo.func(-701, 549) passed
+Elixir.Example.A.Foo.func(180, -206) failed with result %ArithmeticError{message: "bad argument in arithmetic expression"} expected result to be (integer)
+Elixir.Example.A.Foo.func(783, -71) failed with result %ArithmeticError{message: "bad argument in arithmetic expression"} expected result to be (integer)
+Elixir.Example.A.Foo.func(-927, 413) passed
+Elixir.Example.A.Foo.func(20, -487) failed with result %ArithmeticError{message: "bad argument in arithmetic expression"} expected result to be (integer)
+Elixir.Example.A.Foo.func(-534, -322) passed
+Elixir.ExampleB.func2(-21, -753) passed
+Elixir.ExampleB.func2(816, -187) passed
+Elixir.ExampleB.func2(284, 942) passed
+Elixir.ExampleB.func2(-569, -681) passed
+Elixir.ExampleB.func2(787, -475) passed
+Elixir.ExampleB.func2(-84, -918) passed
+Elixir.ExampleB.func2(789, -842) passed
+Elixir.ExampleB.func2(-557, -89) passed
+Elixir.ExampleB.func2(-819, 562) passed
+Elixir.ExampleB.func2(82, -976) passed
+Elixir.ExampleB.func("D=m]HqK*-uvk:'{i:rJr:$-LI3y$RkVQv:5t59>G"PfooX;WR|u4qYa.^p`jcA&$&xo"ACA1*V-NM/wN||V#=n!Amyqz)iK|<K`rk>F6:m[V,:se?.6c?}+y+Ac!]2rD0{fm+Dg';>WS?<f tIm{#v-|f-=hm1m3/b^Yf;GAdO7$nUOZn6hs}48U*+=M&pwI(2U%GPgd&tzP\8>,%Bozy\Q`Iw:Q1n%x5A.9l#*4{lOA?ZV%+])qi9Ol;. z#o5L4Q,_{y +"^cKr>1ZvtOLt37!"N6XGW*!h4jpG/}XyO<MrKdP7vi+]qn$X2!|Jp^HK3WNO1mTN8nk?ceR=5k>>S3raYp$n/JFqTcJBZfl-<J`AlpHxcZT+iw7l?g'd\(hi:bKVILII&MOHoB2!sZpE}.^N)0,1>{o}KQW_K6SWCjqW5kB6>bV\n?BI_QVd[OMJ{V<-]2S6{$H,we5qO(+MS1,T'L{!uo2Ig_$#Qgqv%})nyawAOV1$x^*8;vxWX<:]gH{v$ItL$") passed
 Elixir.ExampleB.func(false) passed
-Elixir.ExampleB.func() passed
-Elixir.ExampleB.func(734) passed
-Elixir.ExampleB.func(qWU(ow".[7K^|4qq3AT.Wdi[BnbkY?I7IVF`Qea7I^d(boq)BY1)-![)NH]0bj_%mfSgu.X5O:cR`U>0HvJ4H7$;kx5yPq.oDluR}p$Ws'PKFr3M9|18}{;-o$G,QlsQe2FUHO`REmfojTtayjOO_-.-e*F"Rae%`GCZ$$))@fDQK6O]`mu*zGY8cP""W1MDovyO>) passed
-Elixir.ExampleB.func(274.0) passed
-Elixir.ExampleB.func(u)yTqA-kT&C'YjdshYRCpAd||np<OuA2yndro|]}6A;meieOCR;yViaIf.e,A!J) passed
-Elixir.ExampleB.func(818) passed
-Elixir.ExampleB.func(699) passed
-Elixir.ExampleB.func(574) passed
-Elixir.ExampleB.func(vPAys{`L`Z@(eE!iHd(/y&n8Y'GWsFJJI5wQG1fB}xRz1Kv.n\ BAf:XKHps!?+{dg_LK d0Vl!|k_746!EO(tJ-]Eti:6+a/m.{F!PJqr]LCSC|r`e53v!z!F!sg{KJ>}M#UII6zz>VHe)RHlGHDh,5:H?,#}'.s@<]l$2Lvx;0T!x%gb?v>C56c4^%6FVL#M$eR\Ls2Y*tg=S"2|u\gX/L1/{/rOx}_8&nYPZN"StF^{`1b?YQYbmXYJvMlW@80Q''zn+/oWSi+lVP3Z:U=a-fg;9 v.A/dsY'.@'@MZ.*"NM|SZNe:7 `ww_|O0R.j[yc ;S5V,@S<4ds+NBzQOo:*47hI1a8!^;NGw1QO\mbE]Ewd=yq'L#w@MTzY}'G)-1i[>ZWEVu%;V'ZI=&[(N.>PG81t',<d,6g@clB$/[}SM;,I:`jrw'TP^a4<V m&_rJUS"?(3/3J %Imwg9bt0i`MEBD0]}a*dCf1=P=U{tQZ58^Y[t)M,iaFSef]lwG2H4${v"-(?oDC{)0/vx_.^,qsqJ.S0oth,)]5kR iV/>NL=.L<g1=vSl3HA4&Iq/(gGxb7<KyFO&ZiirV#_RwG_WQLTq_aS0pB[l+7Ic (kMlZxo6w>-yMnpp2Y,A0G$%*g,*{10;v^GG#3'"4'oe*N{@C8.fqcxl=Yd}W^;A$9Tcs7m=!pgQ=+_7}m%ls>xsk;;Vx^=*FI;ANyYxXp1)XxKXC#nF[w.a{J/J>WhJ'6jYLM\[IBvg3q2d7jL[NDq$r Yyk.vi}wApBF\DV<\zn2iVL_v!k9/Tt%MvTqY}P<caWkCLLf(`xewvS|#s'$7jfrv}?Yyk9OB?{[GFN[+8) passed
+Elixir.ExampleB.func(349) passed
+Elixir.ExampleB.func(625) passed
+Elixir.ExampleB.func(_0Jrudf+:Sa+yaaClWI|j^<F?d2{\m5^Vr'<afuS@=tz) passed
+Elixir.ExampleB.func(-206) passed
+Elixir.ExampleB.func(T\w(zKlLNnXa",DY?8Wa'^3;5_gcYc?2o*xn+RMC4z1;+^].T$kr1CbcSe#?s@6iM&5yf0:_VN#K]\,y}\_%e"hTZW(&?HFUBdt=#NxDZI7kke.dbeiW%:M#wySF\Oqp6D&7U2 oVC@ {Z+nt{RGVIM0;n&;VC*!GfB@{Dl8#{-lf>uMmKbe5;,l,DqFz29FFoIPWUEeVnptqrkSul6sTq8/a S0h&1s7AVfRfrKBc:$NJMLQ3nV:6Jc<ZB)c2Rrf6H&/}kQx*syR%! ;!n" KLw(BrB?0!Sm?D F./=@aFp/#,;(+=7[v1Z*`ZsGa,TD:@L!wv{f2s&UK-U1rBB)sYKLCC3qEwCs=b%5onh>&&ZIeNiel^9<w]tpR;qUm$hXwiYv}nmw?r9f4<V<\}Mh|0Ag(=qjZB`gH#f=mC @b/z[#"Ru$#)J\g2N^?LC:hc\%$mAcgCZQNrVgkiw<2=VR9n) passed
+Elixir.ExampleB.func(465.3712685982096) passed
+Elixir.ExampleB.func(239.6881382097808) passed
+Elixir.ExampleB.func(244) passed
 
-success: 31 failed: 1
+success: 26 failed: 6
 ```
 
 If you only want to run speck against a certain file, do something like this:

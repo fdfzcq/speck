@@ -2,10 +2,15 @@ defmodule Example.A do
   alias Logger
   defmodule Foo do
     @spec func(a :: integer, b :: integer) :: integer
-    def func(a, b), do: a + b
+    def func(a, b) do
+      case a > 0 do
+        true -> a/0
+        false -> a + b
+      end
+    end
 
     @spec func2(test :: boolean) :: boolean
-    def func2(true), do: true
+    def func2(true), do: nil
     def func2(false), do: false
   end
 end
